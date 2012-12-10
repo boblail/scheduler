@@ -1,0 +1,11 @@
+.task {
+  display: block;
+  
+  div { display: inline-block; }
+}
+
+input.task-description {
+  font-size: 1.08em;
+  padding: .5em .75em;
+  width: 300px;
+}
