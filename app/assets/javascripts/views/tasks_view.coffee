@@ -1,12 +1,16 @@
 class window.TasksView extends Backbone.View
-  tagName: 'ul'
-  id: 'tasks'
   
   initialize: ->
     @tasks = @options.tasks
   
   render: ->
     $el = $(@el)
+    
+    template = HandlebarsTemplates['tasks/index']
+    $el.html template()
+    
+    $ul = $el.find('#tasks')
+    
     @tasks.each (task)->
-      $el.appendView(new TaskView(task: task))
+      $ul.appendView(new TaskView(task: task))
     @

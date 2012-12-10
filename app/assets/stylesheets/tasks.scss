@@ -1,11 +1,31 @@
-.task {
+.task, .headings {
   display: block;
   
-  div { display: inline-block; }
+  div {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    
+    &.task-description { width: 40%; }
+    &.task-effort { width: 10%; }
+    &.task-value { width: 10%; }
+    &.task-priority { width: 10%; }
+  }
 }
 
-input.task-description {
-  font-size: 1.08em;
-  padding: .5em .75em;
-  width: 300px;
+#tasks {
+  margin: 0;
+  padding: 0;
+  
+  .output,
+  input {
+    font-size: 1.08em;
+    padding: .5em .75em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: auto;
+  }
 }
