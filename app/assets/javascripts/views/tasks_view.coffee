@@ -57,7 +57,15 @@ class window.TasksView extends Backbone.View
     
     maxWidth = (_.max rows, (row)-> row.width()).width()
     
+    $('#schedule_axis').html("#{maxWidth} hours")
+    
     # $.clear()
+    
+    $('#schedule').tween
+      height: 
+        stop: @wip * 22
+        duration: 0.50
+        effect: 'quadInOut'
     
     for cid, position of positionByCID
       widthPercent = position.width / maxWidth * 100
