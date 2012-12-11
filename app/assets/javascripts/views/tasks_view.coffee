@@ -2,9 +2,11 @@ class window.TasksView extends Backbone.View
   
   events:
     'click #sort_tasks': 'sortByPriority'
+    'change #resources_count': 'updateWipConstraint'
   
   initialize: ->
     @tasks = @options.tasks
+    @wip = 3
   
   sortedTasks: ->
     @tasks.sortByPriority()
@@ -31,13 +33,17 @@ class window.TasksView extends Backbone.View
       color = projects[task.get('project')]
       $schedule.append "<div class=\"scheduled-task\" data-cid=\"#{task.cid}\" style=\"background-color: #{color}\"></div>"
     
-    @updateSchedule(wip: 3)
+    @updateSchedule()
   
   
   
-  updateSchedule: (options)->
+  updateWipConstraint: ->
+    @wip = +$('#resources_count').val()
+    @updateSchedule()
+  
+  updateSchedule: ->
     tasks = @sortedTasks()
-    numberOfRows = options.wip
+    numberOfRows = @wip
     rows = (new Row(i) for i in [1..numberOfRows])
     
     positionByCID = {}
@@ -51,7 +57,7 @@ class window.TasksView extends Backbone.View
     
     maxWidth = (_.max rows, (row)-> row.width()).width()
     
-    $.clear()
+    # $.clear()
     
     for cid, position of positionByCID
       widthPercent = position.width / maxWidth * 100
@@ -122,7 +128,7 @@ class window.TasksView extends Backbone.View
     
     $.play =>
       $('#tasks').css(height: '')
-      @updateSchedule(wip: 3)
+      @updateSchedule()
       onComplete()
 
 
