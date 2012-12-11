@@ -7,6 +7,7 @@ class window.TaskView extends Backbone.View
   
   initialize: ->
     @task = @options.task
+    @task.bind 'change', _.bind(@render, @)
   
   render: ->
     $el = $(@el)
@@ -20,7 +21,7 @@ class window.TaskView extends Backbone.View
     $el = $(@el)
     
     attributes = $el.serializeFormElements()
-    @task.set attributes
+    @task.set attributes, {silent: true}
     
     @renderPriority()
   

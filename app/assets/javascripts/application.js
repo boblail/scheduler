@@ -18,4 +18,5 @@
 //= require backbone
 //= require handlebars
 //= require_tree ../templates
+//= require shortcut
 //= require_tree .
