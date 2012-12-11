@@ -13,7 +13,7 @@ class window.TaskView extends Backbone.View
     $el = $(@el)
     template = HandlebarsTemplates['tasks/show']
     $el.html template(@task.toJSON())
-    $el.attr('cid', @task.cid)
+    $el.attr('data-cid', @task.cid)
     $el.find('[rel=tooltip]').tooltip()
     @renderPriority()
     @

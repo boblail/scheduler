@@ -25,7 +25,6 @@ end
 
 gem 'jquery-rails'
 gem 'backbone-rails'
-gem 'd3-rails'
 gem 'handlebars_assets'
 
 group :development do
