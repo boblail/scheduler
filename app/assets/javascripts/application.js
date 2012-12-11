@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jstween-1.1
 //= require twitter/bootstrap
 //= require underscore
 //= require backbone

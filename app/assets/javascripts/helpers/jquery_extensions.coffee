@@ -17,3 +17,15 @@ $.fn.extend
       else
         data[name] = elem.val()
     data
+  
+  positionAbsolutely: ->
+    positions = ($(el).position() for el in @)
+    for i in [0...@length]
+      $el = $(@[i])
+      pos = positions[i]
+      $el.css
+        position: 'absolute'
+        top: pos.top
+        left: pos.left
+        width: $el.width()
+        height: $el.height()
