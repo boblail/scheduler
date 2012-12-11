@@ -11,6 +11,12 @@ $ ->
     { description: "Dont't require 360 Members or Google to have a calendar", project: "360 Unite", effort: 50, value: 50000 }
   ])
   
+  window.projects =
+    "360 Unite":    "#39b3aa"
+    "360 Members":  "#8dc63f"
+    "Houston":      "#e74c23"
+    "Scheduler":    "#b35ab8"
+  
   $view = $('#view')
   
   window.tasksView = new TasksView
