@@ -1,3 +1,5 @@
+h3 { margin-bottom: 1em; }
+
 .task, .headings {
   display: block;
   
@@ -11,6 +13,13 @@
     &.task-value { width: 10%; }
     &.task-priority { width: 10%; }
   }
+}
+
+.headings div {
+  height: auto;
+  font-weight: bold;
+  
+  small { font-weight: normal; }
 }
 
 #tasks {
